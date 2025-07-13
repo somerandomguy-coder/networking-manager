@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import ProfileCard from './components/ProfileCard.jsx'
-
+import Header from './components/Header.jsx'
+import ListOfProfile from './components/ListOfProfile.jsx'
+import AddCard from './components/AddCard.jsx'
 function App() {
   return (<>
-    <ProfileCard ></ProfileCard>
+    <Header />
+    <ListOfProfile />
+    <AddCard />
   </>)
 }
 
-export default App
+export default App;

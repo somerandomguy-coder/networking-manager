@@ -1,50 +1,39 @@
-import {
-  Avatar,
-  Button,
-  Card,
-  HStack,
-  Stack,
-  Strong,
-  Text,
-} from "@chakra-ui/react"
-import { LuCheck, LuX } from "react-icons/lu"
+import { Grid, GridItem, Avatar, Button, Text, Stack} from "@chakra-ui/react"
 
-const ProfileCard = () => {
+const ProfileCard = ({ name, relationship }) => {
   return (
-    <Card.Root width="320px">
-      <Card.Body>
-        <HStack mb="6" gap="3">
-          <Avatar.Root>
-            <Avatar.Image src="https://images.unsplash.com/photo-1511806754518-53bada35f930" />
-            <Avatar.Fallback name="Nate Foss" />
-          </Avatar.Root>
+    <Grid
+      width="90vw"
+      templateColumns="repeat(3,5fr)"
+      gap="6"
+      bg="gray.950"
+      p="15px"
+      mt="15px"
+      borderRadius="10px"
+      _hover={{
+        bg: "gray.600",
+      }}
+      transition="all 0.2s ease-in-out"
+    >
+      <GridItem colSpan={1}>
+        <Avatar.Root shape="rounded" size="2xl">
+          <Avatar.Fallback name={name} />
+          <Avatar.Image src="./meomeo" />
+        </Avatar.Root>
+      </GridItem>
+      <GridItem colSpan={2}>
           <Stack gap="0">
             <Text fontWeight="semibold" textStyle="sm">
-              Nate Foss
+              {name}
             </Text>
             <Text color="fg.muted" textStyle="sm">
-              @natefoss
+              {relationship}
             </Text>
+            <Button variant="outline" size="xs" >More...</Button>
           </Stack>
-        </HStack>
-        <Card.Description>
-          <Strong color="fg">Nate Foss </Strong>
-          has requested to join your team. You can approve or decline their
-          request.
-        </Card.Description>
-      </Card.Body>
-      <Card.Footer>
-        <Button variant="subtle" colorPalette="red" flex="1">
-          <LuX />
-          Decline
-        </Button>
-        <Button variant="subtle" colorPalette="blue" flex="1">
-          <LuCheck />
-          Approve
-        </Button>
-      </Card.Footer>
-    </Card.Root>
+      </GridItem>
+    </Grid>
   )
 }
 
-export default ProfileCard
+export default ProfileCard;
