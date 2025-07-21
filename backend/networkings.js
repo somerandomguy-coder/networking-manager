@@ -82,4 +82,17 @@ const hard_code_data = [
   }
 ];
 
-export default hard_code_data;
+const resolve_json = ({id, name, relationship, BD, gender, informations, events}) => {
+  return ({
+    ID: null,
+    firstName: name.split(" ")[0],
+    lastName: name.split(" ").slice(1).join(" ") || null,
+    relationship:relationship || null,
+    BD: BD || null,
+    gender: gender || null,
+    information: JSON.stringify(informations),
+    event: JSON.stringify(events) 
+  })
+}
+
+export {hard_code_data, resolve_json} ;
